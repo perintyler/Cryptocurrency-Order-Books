@@ -1,0 +1,53 @@
+<router-outlet></router-outlet>
+<div class="header">
+  <span><button mat-raise-button (click)="goToSnapshot()">Take Snapshot</button></span>
+  <div class="title-center"><h1>Real time Order Book</h1></div>
+</div>
+<div class="outer">
+    <div class="left">
+        <h2>Bids</h2>
+        <mat-table [dataSource]="bidDataSource">
+            <ng-container matColumnDef="pair">
+                <mat-header-cell *matHeaderCellDef> Pair </mat-header-cell>
+                <mat-cell *matCellDef="let order"> {{order.pair}} </mat-cell>
+            </ng-container>
+            <ng-container matColumnDef="price">
+                <mat-header-cell *matHeaderCellDef> Price </mat-header-cell>
+                <mat-cell *matCellDef="let order"> {{order.price}} </mat-cell>
+            </ng-container>
+            <ng-container matColumnDef="amount">
+                <mat-header-cell *matHeaderCellDef> Amount </mat-header-cell>
+                <mat-cell *matCellDef="let order"> {{order.amount}} </mat-cell>
+            </ng-container>
+            <ng-container matColumnDef="exchange">
+                <mat-header-cell *matHeaderCellDef> Exchange </mat-header-cell>
+                <mat-cell *matCellDef="let order"> {{order.exchange}} </mat-cell>
+            </ng-container>
+            <mat-header-row [ngClass]="'table-headers'" *matHeaderRowDef="displayedColumns"></mat-header-row>
+            <mat-row  *matRowDef="let row; columns: displayedColumns;"></mat-row>
+        </mat-table>
+    </div>
+    <div class="right">
+        <h2>Asks</h2>
+        <mat-table [dataSource]="askDataSource">
+            <ng-container matColumnDef="pair">
+                <mat-header-cell *matHeaderCellDef> Pair </mat-header-cell>
+                <mat-cell *matCellDef="let order"> {{order.pair}} </mat-cell>
+            </ng-container>
+            <ng-container matColumnDef="price">
+                <mat-header-cell *matHeaderCellDef> Price </mat-header-cell>
+                <mat-cell *matCellDef="let order"> {{order.price}} </mat-cell>
+            </ng-container>
+            <ng-container matColumnDef="amount">
+                <mat-header-cell *matHeaderCellDef> Amount </mat-header-cell>
+                <mat-cell *matCellDef="let order"> {{order.amount}} </mat-cell>
+            </ng-container>
+            <ng-container matColumnDef="exchange">
+                <mat-header-cell *matHeaderCellDef> Exchange </mat-header-cell>
+                <mat-cell *matCellDef="let order"> {{order.exchange}} </mat-cell>
+            </ng-container>
+            <mat-header-row [ngClass]="'table-headers'" *matHeaderRowDef="displayedColumns"></mat-header-row>
+            <mat-row  *matRowDef="let row; columns: displayedColumns;"></mat-row>
+        </mat-table>
+    </div>
+</div>
