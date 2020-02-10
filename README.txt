@@ -1,3 +1,4 @@
+Parses crypto bids/asks from the coinbase and bitfinix webhooks and makes it accessible through a flask rest api
 
 Back end Requirements:
     - python3
